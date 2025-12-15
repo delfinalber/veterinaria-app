@@ -1,0 +1,20 @@
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ecosystem.config.js ./
+RUN npm ci
+
+FROM node:20-alpine
+WORKDIR /app
+
+# Instalar PM2 globalmente
+RUN npm i -g pm2
+
+COPY --from=builder /app/node_modules ./node_modules
+COPY . .
+
+# Crear directorio logs
+RUN mkdir -p ./logs
+
+EXPOSE 3000
+ENV NODE_ENV=production
+CMD ["npm", "start"]
