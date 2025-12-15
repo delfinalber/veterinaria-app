@@ -65,6 +65,6 @@ build {
   }
 }
 
-output "ami_id" {
-  value = amazon_ebs.ubuntu_node_nginx.ami_id
+ {
+ 
 }
