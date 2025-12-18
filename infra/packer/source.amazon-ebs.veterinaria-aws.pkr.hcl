@@ -1,6 +1,6 @@
 # source.amazon-ebs.veterinaria-aws.pkr.hcl
 
-# ⚠️ Sin bloque packer/required_plugins aquí
+
 
 source "amazon-ebs" "veterinaria-aws" {
   ami_name      = "veterinaria-aws-{{timestamp}}"
