@@ -39,10 +39,19 @@ source "azure-arm" "veterinaria-azure" {
 }
 
 build {
-  name    = "veterinaria-multicloud-ready"
-  sources = ["source.azure-arm.veterinaria-azure"]
+  name = "multicloud-veterinaria"
+
+  sources = [
+    "source.amazon-ebs.veterinaria-aws",   # tu builder principal
+    "source.azure-arm.veterinaria-azure"   # este builder Azure
+  ]
 
   provisioner "shell" {
-    script = "scripts/install_veterinaria.sh"
+    inline = [
+      "sudo apt-get update",
+      "sudo apt-get install -y nodejs npm nginx",
+      "mkdir -p /opt/veterinaria-app"
+    ]
   }
 }
+

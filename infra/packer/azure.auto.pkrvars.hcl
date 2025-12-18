@@ -1,6 +1,24 @@
+source "azure-arm" "azure-node-image" {
+  subscription_id       = var.azure_subscription_id
+  tenant_id             = var.azure_tenant_id
+  client_id             = var.azure_client_id
+  client_secret         = var.azure_client_secret
+
+  managed_image_name    = "veterinaria-node-image"
+  managed_image_rg_name = "packer-veterinaria_group"
+  location              = var.azure_region
+
+
+
 tenant_id       = "12a54773-1d18-42f0-a815-f94cf43bf3a2"
 subscription_id = "9650162f-f281-4dfb-9990-b1f4d0914fd4"
 client_id       = "71e94b7c-87b4-4023-9d6f-f092452a0ba9"
 client_secret   = "SD78Q~uXSIyIo9ohlmFpDygMMwWlVlYhDbrkHb_h"
 resource_group  = "packer-veterinaria_group"
 location        = "westeurope"
+
+
+azure_subscription_id = "00000000-0000-0000-0000-000000000000"
+azure_tenant_id       = "00000000-0000-0000-0000-000000000000"
+azure_client_id       = "00000000-0000-0000-0000-000000000000"
+azure_client_secret   = "CHANGE_ME_IN_ENV"
