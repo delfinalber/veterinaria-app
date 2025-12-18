@@ -1,11 +1,17 @@
 packer {
   required_plugins {
+    amazon = {
+      source  = "github.com/hashicorp/amazon"
+      version = ">= 1.3.0"
+    }
+
     azure = {
       source  = "github.com/hashicorp/azure"
       version = ">= 1.0.0"
     }
   }
 }
+
 
 provider "azure" {
   subscription_id = var.azure_subscription_id

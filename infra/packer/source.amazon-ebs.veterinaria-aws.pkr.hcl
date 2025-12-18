@@ -1,15 +1,25 @@
-packer {
-  required_version = ">= 1.7.0"
+# source.amazon-ebs.veterinaria-aws.pkr.hcl
 
-  required_plugins {
-    amazon = {
-      source  = "github.com/hashicorp/amazon"
-      
+# ⚠️ Sin bloque packer/required_plugins aquí
+
+source "amazon-ebs" "veterinaria-aws" {
+  ami_name      = "veterinaria-aws-{{timestamp}}"
+  instance_type = "t2.micro"
+  region        = "us-east-1"
+
+  source_ami_filter {
+    filters = {
+      name                = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
+      root-device-type    = "ebs"
+      virtualization-type = "hvm"
     }
-
-    
+    most_recent = true
+    owners      = ["099720109477"]
   }
+
+  ssh_username = "ubuntu"
 }
+
 
 
 variable "azure_subscription_id" {}
