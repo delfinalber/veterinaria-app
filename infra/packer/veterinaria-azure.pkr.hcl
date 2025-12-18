@@ -1,17 +1,17 @@
 packer {
-  required_version = ">= 1.7.0"
-
   required_plugins {
-    amazon = {
-      source  = "github.com/hashicorp/amazon"
-      version = ">= 1.3.0"
-    }
-
     azure = {
       source  = "github.com/hashicorp/azure"
       version = ">= 1.0.0"
     }
   }
+}
+
+provider "azure" {
+  subscription_id = var.azure_subscription_id
+  tenant_id       = var.azure_tenant_id
+  client_id       = var.azure_client_id
+  client_secret   = var.azure_client_secret
 }
 
 
