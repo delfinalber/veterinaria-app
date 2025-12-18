@@ -7,10 +7,7 @@ packer {
       version = ">= 1.3.0"
     }
 
-    azure = {
-      source  = "github.com/hashicorp/azure"
-      version = ">= 1.0.0"
-    }
+    
   }
 }
 
