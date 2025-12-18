@@ -1,11 +1,13 @@
 packer {
+  required_version = ">= 1.7.0"
   required_plugins {
     azure = {
       source  = "github.com/hashicorp/azure"
-      version = "~> 2"
+      version = ">= 1.0.0"
     }
   }
 }
+
 
 variable "tenant_id"      {}
 variable "subscription_id" {}
