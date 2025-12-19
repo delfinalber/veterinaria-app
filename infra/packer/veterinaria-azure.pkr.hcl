@@ -76,11 +76,9 @@ source "azure-arm" "veterinaria-azure" {
 }
 
 build {
-  name = "multicloud-veterinaria"
-
+  name    = "veterinaria-azure"
   sources = [
-    "source.amazon-ebs.veterinaria-aws",   # tu builder principal
-    "source.azure-arm.veterinaria-azure"   # este builder Azure
+    "source.azure-arm.veterinaria-azure"
   ]
 
   provisioner "shell" {
