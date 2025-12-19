@@ -8,7 +8,7 @@ source "azure-arm" "azure-node-image" {
   managed_image_rg_name = "packer-veterinaria_group"
   location              = var.azure_region
 
-
+}
 
 tenant_id       = "12a54773-1d18-42f0-a815-f94cf43bf3a2"
 subscription_id = "9650162f-f281-4dfb-9990-b1f4d0914fd4"
