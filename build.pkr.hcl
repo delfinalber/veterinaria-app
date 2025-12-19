@@ -50,10 +50,7 @@ source "amazon-ebs" "ubuntu_node_nginx" {
 }
 
 source "azure-arm" "azure-node-image" {
-  subscription_id = var.azure_subscription_id
-  client_id       = var.azure_client_id
-  client_secret   = var.azure_client_secret
-  tenant_id       = var.azure_tenant_id
+  use_azure_cli_auth = true
 
   managed_image_resource_group_name = "rg-veterinaria-img"
   managed_image_name                = "img-veterinaria-node"
@@ -64,6 +61,7 @@ source "azure-arm" "azure-node-image" {
   image_offer     = "0001-com-ubuntu-server-focal"
   image_sku       = "20_04-lts"
 }
+
 
 build {
   name = "veterinaria-multicloud"
