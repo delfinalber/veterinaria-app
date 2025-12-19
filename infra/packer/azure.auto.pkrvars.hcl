@@ -18,7 +18,4 @@ resource_group  = "packer-veterinaria_group"
 location        = "westeurope"
 
 
-azure_subscription_id = "00000000-0000-0000-0000-000000000000"
-azure_tenant_id       = "00000000-0000-0000-0000-000000000000"
-azure_client_id       = "00000000-0000-0000-0000-000000000000"
-azure_client_secret   = "CHANGE_ME_IN_ENV"
+
