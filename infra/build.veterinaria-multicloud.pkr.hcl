@@ -2,7 +2,7 @@ build {
   name = "veterinaria-multicloud"
 
   sources = [
-    "source.amazon-ebs.veterinaria-aws",
+    "source.amazon-ebs.ubuntu_node_nginx",
     "source.azure-arm.azure-node-image"
   ]
 
