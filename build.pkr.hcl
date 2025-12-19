@@ -52,6 +52,8 @@ source "amazon-ebs" "ubuntu_node_nginx" {
 source "azure-arm" "azure-node-image" {
   use_azure_cli_auth = true
 
+  # Grupo de recursos donde se creará la imagen
+  resource_group_name               = "rg-veterinaria-img"
   managed_image_resource_group_name = "rg-veterinaria-img"
   managed_image_name                = "img-veterinaria-node"
 
@@ -61,6 +63,7 @@ source "azure-arm" "azure-node-image" {
   image_offer     = "0001-com-ubuntu-server-focal"
   image_sku       = "20_04-lts"
 }
+
 
 
 build {
