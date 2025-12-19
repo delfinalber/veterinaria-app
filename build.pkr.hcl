@@ -2,15 +2,17 @@ build {
   name = "veterinaria-multicloud"
 
   sources = [
-    "source.amazon-ebs.veterinaria-aws",
+    "source.amazon-ebs.ubuntu_node_nginx",
     "source.azure-arm.azure-node-image"
   ]
 
   provisioner "shell" {
     inline = [
       "sudo apt-get update -y",
-      "sudo apt-get install -y nodejs npm nginx",
-      "mkdir -p /opt/veterinaria-app"
+      "curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -",
+      "sudo apt-get install -y nodejs nginx",
+      "sudo systemctl enable nginx",
+      # aquí puedes reutilizar el inline que ya tenías
     ]
   }
 }
