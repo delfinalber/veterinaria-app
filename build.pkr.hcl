@@ -9,10 +9,8 @@ build {
   provisioner "shell" {
     inline = [
       "sudo apt-get update -y",
-      "curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -",
-      "sudo apt-get install -y nodejs nginx",
-      "sudo systemctl enable nginx",
-      # aquí puedes reutilizar el inline que ya tenías
+      "sudo apt-get install -y nodejs npm nginx",
+      "mkdir -p /opt/veterinaria-app"
     ]
   }
 }
