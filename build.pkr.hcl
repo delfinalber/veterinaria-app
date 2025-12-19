@@ -15,6 +15,22 @@ variable "aws_region" {
   default = "us-east-1"
 }
 
+variable "azure_subscription_id" {
+  default = env("ARM_SUBSCRIPTION_ID")
+}
+
+variable "azure_client_id" {
+  default = env("ARM_CLIENT_ID")
+}
+
+variable "azure_client_secret" {
+  default = env("ARM_CLIENT_SECRET")
+}
+
+variable "azure_tenant_id" {
+  default = env("ARM_TENANT_ID")
+}
+
 source "amazon-ebs" "ubuntu_node_nginx" {
   region        = var.aws_region
   instance_type = "t3.micro"
@@ -47,10 +63,6 @@ source "azure-arm" "azure-node-image" {
   image_publisher = "Canonical"
   image_offer     = "0001-com-ubuntu-server-focal"
   image_sku       = "20_04-lts"
-
-  # opcional:
-  # storage_account     = "miStorageCuenta"
-  # resource_group_name = "rg-veterinaria-img"
 }
 
 build {
@@ -61,13 +73,12 @@ build {
     "source.azure-arm.azure-node-image",
   ]
 
- provisioner "shell" {
-  inline = [
-    "sudo apt-get update -y || echo 'apt-get update failed, continuing...'",
-    "curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -",
-    "sudo apt-get install -y nodejs nginx",
-    "sudo mkdir -p /opt/veterinaria-app"
-  ]
-}
-
+  provisioner "shell" {
+    inline = [
+      "sudo apt-get update -y || echo 'apt-get update failed, continuing...'",
+      "curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -",
+      "sudo apt-get install -y nodejs nginx",
+      "sudo mkdir -p /opt/veterinaria-app"
+    ]
+  }
 }
