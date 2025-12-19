@@ -56,7 +56,7 @@ source "azure-arm" "azure-node-image" {
   managed_image_resource_group_name = "rg-veterinaria-img"
   managed_image_name                = "img-veterinaria-node"
 
-  vm_size        = "Standard_D2s_v3"  # <- NUEVO TAMANO
+  vm_size        = "Standard_B1ms"  # <- NUEVO TAMANO
   os_type        = "Linux"
   image_publisher = "Canonical"
   image_offer     = "0001-com-ubuntu-server-focal"
