@@ -57,7 +57,7 @@ source "azure-arm" "azure-node-image" {
   managed_image_resource_group_name = "rg-veterinaria-img"
   managed_image_name                = "img-veterinaria-node"
 
-  location        = "eastus"
+  
   os_type         = "Linux"
   image_publisher = "Canonical"
   image_offer     = "0001-com-ubuntu-server-focal"
